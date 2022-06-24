@@ -3,6 +3,7 @@
 ## Timelines
 
 | :smile: The first version for fast evaluation is released. |
+|-------------------------------------------------------------------------------|
 | :zap:   Other Code is coming soon! On building!      | 
 |-------------------------------------------------------------------------------|
 
