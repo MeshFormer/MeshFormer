@@ -25,15 +25,15 @@ class MeshTransformer:
         self.writerDir = writer_dir
         self.args = args
 
+        self.device = 'cuda:' + str(device)
         self.writer = SummaryWriter(self.writerDir)
         self.beginwriter = False
         self.enc = OneHotEncoder(handle_unknown='ignore')
         self.data = []
-        self.colors = torch.randint(256,(1000,3)).cuda()
+        self.colors = torch.randint(256,(1000,3)).to(self.device)
         self.num_types  = -1
         self.num_relations = -1
         self.num_label = -1
-        self.device = 'cuda:' + str(device)
         self.task_name = task_name
         self.test_num = test_num 
         self.log = Logger(sys.path[-1])
@@ -199,7 +199,7 @@ class MeshTransformer:
                 if self.loss_type == 'KLD':
                     loss = self.criterion(res, torch.FloatTensor(ylabels).to(self.device))
                 elif self.loss_type == 'focal':
-                    loss = self.criterion(res, torch.LongTensor(ylabels.argsort()[:, -1].reshape(-1).tolist()[0]).to(self.device), weight= torch.tensor(face_area).cuda())
+                    loss = self.criterion(res, torch.LongTensor(ylabels.argsort()[:, -1].reshape(-1).tolist()[0]).to(self.device), weight= torch.tensor(face_area).to(self.device))
 
                 self.optimizer.zero_grad()
                 torch.cuda.empty_cache()
@@ -299,7 +299,7 @@ class MeshTransformer:
                 res = self.classifier.forward(node_rep)
                 error_label = res.argsort()[:, -1].reshape(-1) == torch.LongTensor(
                     ylabels.argsort()[:, -1].reshape(-1).tolist()[0]).to(self.device)
-                face_area = torch.tensor(face_area).cuda()
+                face_area = torch.tensor(face_area).to(self.device)
                 label_acc.append([torch.sum(error_label*face_area).tolist(), face_area.sum().tolist()])
 
                 self.log.info(file.split('/')[-1]+"th mesh's test accuracy: " + str(torch.sum(error_label*face_area).tolist()/ face_area.sum()))
@@ -321,14 +321,14 @@ class MeshTransformer:
             self.log.info('UPDATE Best Model!!!')
             error_label = error_label_save 
             error_node_labels_true = torch.unique(face_indices[torch.where(error_label==False)[0]].reshape(-1))
-            error_node_labels = torch.BoolTensor((len(sourceMeshIds))).cuda()
+            error_node_labels = torch.BoolTensor((len(sourceMeshIds))).to(self.device)
             error_node_labels[:] = False
             error_node_labels[error_node_labels_true] = True
             
             points = points_save
             face_indices = face_indices_save
             face_center = torch.sum(points[face_indices], dim=1)
-            faces = torch.tensor(face_indices).cuda()
+            faces = torch.tensor(face_indices).to(self.device)
             self.writer.add_embedding(points,
                                       metadata=error_node_labels,
                                       global_step=t_count,tag=str(folder)+'/test')
