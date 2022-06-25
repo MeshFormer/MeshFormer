@@ -1,14 +1,14 @@
 # Fast evalution
 
-To reproduce the paper results, either by retraining a network or by using a pre-trained model, please follow these steps.
+The results in the paper can be reproduced either by retraining a model or by using a pre-trained model. Please follow the following steps.
 
 ### Data preparation
 
-* Please download the data and pre-trained models by run python file:
+* Please download the data or pre-trained models as follows:
   * ```bash
     python evaluation/get_data.py
     ```
-* Then please uncompress all`tar.gz` file by run this command.
+* Please uncompress all files in tar.gz as follows:
   * ```bash
     # Make the above loop a function to be called more than once 
     # In case of compressed files inside compressed files this will 
