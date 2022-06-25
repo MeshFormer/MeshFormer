@@ -10,7 +10,7 @@ We assume that you have installed anaconda and created a blank python environmen
 
 * Pytorch
 
-  * Pyorch supports sparse matrix multiplication after`1.8.0`, so please make sure your torch version is above 1.8, such as
+  * Pytorch supports sparse matrix multiplication after`1.8.0`, so please make sure your torch version is above 1.8, such as
     ```
     pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
     ```
