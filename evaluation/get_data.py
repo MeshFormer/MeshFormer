@@ -58,34 +58,33 @@ if __name__=='__main__':
 
     print('Download the alien data.')
 
-    alien_data_url = "https://drive.google.com/uc?id=1lFAVO8zn0ey0VKZmJW6596k3GRIM-C-y"
+    alien_data_url = "https://drive.google.com/uc?id=1jJFF_YYAjQ9MQgEmZ5E3UvU-gR3rHFCN"
     gd.download(alien_data_url, alien_pre_dir_data)
     print('End download data.')
     print('Download the alien pretrained model.')
-    alien_pred_url = "https://drive.google.com/uc?id=1_xqd8E1b-KM42-58D_DX5Sc8k_RxSNZ5"
+    alien_pred_url = "https://drive.google.com/uc?id=1sM21v7Av2NYkLzCCwZEENxoDU64d6w6z"
     gd.download(alien_pred_url, alien_pre_dir_pred)
     print('End download model.')
     print('You can evaluate alien dataset.\n')
 
 
     print('Download the chair data.')
-    chair_data_url = "https://drive.google.com/uc?id=1qw2G_MG9V572Y5WVt-scjFECnjXLJQfy"
+    chair_data_url = "https://drive.google.com/uc?id=1CQbWrk4nrv-nTRoJ5IGX6zGiyilfGaQ7"
     gd.download(chair_data_url, chair_pre_dir_data)
     print('End download data.')
     print('Download the chair pretrained model.')
-    chair_pred_url = "https://drive.google.com/uc?id=1jSnFNIIKeEa_XE-g515xrWTEMsaMCkul"
+    chair_pred_url = "https://drive.google.com/uc?id=1aT0m7TeEIo5e0HuCN7z1TdDiAWClEAup"
     gd.download(chair_pred_url, chair_pre_dir_pred)
     print('End download model.')
     print('You can evaluate chair dataset.\n')
 
 
-
     print('Download the vase data.')
-    vase_data_url = "https://drive.google.com/uc?id=1kW-eAEXq6UXOrALvKSCx-XCo-y0AK2sR"
+    vase_data_url = "https://drive.google.com/uc?id=1XBJOc5ww-TZJ0GWC_KoYInqtFwb_Qfu1"
     gd.download(vase_data_url, vase_pre_dir_data)
     print('End download data.')
     print('Download the vase pretrained model.')
-    vase_pred_url = "https://drive.google.com/uc?id=1foDcFhxxMgPaEBOxJPB_sx1hsSmomLNN"
+    vase_pred_url = "https://drive.google.com/uc?id=190v_k2m910P44RIZiQFLp1IrF4DbZYGt"
     gd.download(vase_pred_url, vase_pre_dir_pred)
     print('End download model.')
     print('You can evaluate vase dataset.\n')
